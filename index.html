@@ -37,16 +37,25 @@
 
 <script>
 function downloadCV() {
-    // Link langsung ke file PDF
-    const pdfUrl = './CV_LAILA DWI KARTIKA SARI BARU.pdf';
-    
-    // Buat elemen anchor temporary
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = 'CV_LAILA DWI KARTIKA SARI BARU.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    fetch('./CV_LAILA DWI KARTIKA SARI BARU.pdf')
+        .then(response => {
+            if (!response.ok) throw new Error('File not found');
+            return response.blob();
+        })
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'CV_LAILA DWI KARTIKA SARI BARU.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('File CV tidak ditemukan!');
+        });
 }
 </script>
                 </div>
