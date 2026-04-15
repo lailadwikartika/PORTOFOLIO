@@ -166,7 +166,7 @@ h1, h2, h3, h4, .logo {
 .hero {
     position: relative;
     overflow: hidden;
-    background: url('public/login.png') no-repeat center center;
+    background: linear-gradient(135deg, #0f111a 0%, #1a1c2e 50%, #0f111a 100%);
     background-size: cover;
 }
 
@@ -272,7 +272,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .underline {
-    display: none; /* Hide old underline */
+    display: none;
 }
 
 /* About Section */
@@ -360,37 +360,6 @@ h1, h2, h3, h4, .logo {
 
 .image-wrapper img:hover {
     transform: translateY(-8px);
-}
-
-.stats-card {
-    position: absolute;
-    bottom: -30px;
-    right: -40px;
-    background: #ffffff;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.15);
-    max-width: 240px;
-    border-radius: 16px;
-    border: 1px solid #f3f4f6;
-    z-index: 2;
-    transition: transform 0.3s ease;
-}
-
-.stats-card:hover {
-    transform: translateY(-5px);
-}
-
-.stats-card h3 {
-    font-size: 2.5rem;
-    color: #111827;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.stats-card p {
-    font-size: 0.9rem;
-    color: #4b5563;
-    line-height: 1.5;
 }
 
 /* Skills Section */
@@ -617,53 +586,6 @@ h1, h2, h3, h4, .logo {
     font-weight: 500;
 }
 
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.cert-card {
-    border: 1px solid #e5e7eb;
-    padding: 2rem;
-    background: #ffffff;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cert-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
-}
-
-.cert-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    color: #6b7280;
-}
-
-.cert-header i {
-    font-size: 1.25rem;
-}
-
-.cert-year {
-    font-size: 0.9rem;
-}
-
-.cert-card h4 {
-    font-size: 1.1rem;
-    color: #111827;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-}
-
-.cert-issuer {
-    color: #6b7280;
-    font-size: 0.9rem;
-}
-
 /* Lightbox */
 .cert-lightbox {
     position: fixed;
@@ -717,52 +639,6 @@ h1, h2, h3, h4, .logo {
 
 .lightbox-close:hover {
     transform: scale(1.2);
-}
-
-/* Awards Section */
-.awards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.award-card {
-    background: #ffffff;
-    border: 1px solid #fde047; /* yellow-300 */
-    padding: 3rem 2rem;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.award-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(234, 179, 8, 0.1);
-}
-
-.award-card h3 {
-    font-size: 1.5rem;
-    color: #111827;
-    margin-bottom: 2rem;
-    font-weight: 500;
-}
-
-.award-project {
-    color: #374151;
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-}
-
-.award-event {
-    color: #6b7280;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-}
-
-.award-year {
-    color: #9ca3af;
-    font-size: 0.9rem;
 }
 
 /* Contact Overrides for Light Theme */
@@ -887,29 +763,12 @@ footer.footer-dark h3 {
         flex-wrap: wrap;
     }
     
-    .about-grid, .contact-grid, .about-info-grid, .awards-grid {
+    .about-grid, .contact-grid, .about-info-grid {
         grid-template-columns: 1fr;
     }
     
     .cert-featured-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .cert-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .stats-card {
-        right: 0;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 85%;
-        text-align: center;
-    }
-    
-    .stats-card:hover {
-        transform: translate(-50%, -5px);
     }
     
     .skills-grid {
@@ -922,5 +781,23 @@ footer.footer-dark h3 {
     
     .mobile-menu-btn {
         display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
     }
 }

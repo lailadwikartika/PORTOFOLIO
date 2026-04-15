@@ -49,32 +49,6 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
-// Form submission dummy prevention
-const form = document.getElementById('contactForm');
-if(form) {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('.submit-btn');
-        const originalText = btn.innerText;
-        
-        btn.innerText = 'Mengirim...';
-        btn.style.opacity = '0.8';
-        
-        // Simulate network request
-        setTimeout(() => {
-            btn.innerText = 'Pesan Terkirim! ✅';
-            btn.style.background = '#10B981';
-            form.reset();
-            
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.style.background = '';
-                btn.style.opacity = '1';
-            }, 3000);
-        }, 1500);
-    });
-}
-
 // Certificate Lightbox
 const lightbox = document.getElementById('certLightbox');
 const lightboxImg = document.getElementById('lightboxImg');
@@ -104,4 +78,36 @@ if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
+});
+
+// Mobile menu toggle (if needed)
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    });
 });
