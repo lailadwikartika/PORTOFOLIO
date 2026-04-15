@@ -31,9 +31,24 @@
                     <div class="hero-roles">UI/UX DESIGNER &bull; QUALITY ASSURANCE &bull; DATA SCIENTIST</div>
                     <h1>Laila Dwi<br>Kartika Sari</h1>
                     <p>Lulusan Teknik Informatika dengan keahlian dalam merancang pengalaman digital, memastikan kualitas produk, dan menganalisis data untuk menciptakan solusi yang berdampak.</p>
-                    <a href="CV_Laila_Dwi_Kartika_Sari.pdf" download class="btn btn-solid">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
+                    <a href="javascript:void(0);" onclick="downloadCV()" class="btn btn-solid">
+    <i class="fas fa-download"></i> Download CV
+</a>
+
+<script>
+function downloadCV() {
+    // Link langsung ke file PDF
+    const pdfUrl = './CV_Laila_Dwi_Kartika_Sari.pdf';
+    
+    // Buat elemen anchor temporary
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'CV_Laila_Dwi_Kartika_Sari.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
                 </div>
             </div>
         </section>
